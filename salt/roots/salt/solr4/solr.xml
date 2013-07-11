@@ -1,0 +1,7 @@
+<solr persistent="false">
+  <cores adminPath="/admin/cores" host="${host:}" hostPort="${jetty.port:}">
+    {% for core_name in core_names %}
+    <core name="{{ core_name }}" instanceDir="{{ core_name }}" />
+    {% endfor %}
+  </cores>
+</solr>
