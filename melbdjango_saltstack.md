@@ -211,24 +211,3 @@ Because
 # Got Questions?
 
 .fx: titleslide
-
----
-
-# A sample vagrant file
-
-    !ruby
-    Vagrant.configure("2") do |config|
-      config.vm.box = "precise64"
-
-      # redis port
-      config.vm.network :forwarded_port, guest: 6379, host: 9999
-
-      # For masterless, mount your salt file root
-      config.vm.synced_folder "salt/roots/", "/srv/"
-
-      config.vm.provision :salt do |salt|
-        salt.minion_config = "salt/minion"
-        salt.run_highstate = true
-        salt.verbose = true
-      end
-    end
